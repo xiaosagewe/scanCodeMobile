@@ -71,8 +71,17 @@ export default {
 
   methods: {
     handleScan(num) {
-      this.paused = false;
-      this.key = `code${num}`;
+      if (this.code) {
+        router.push({
+          path: '/codeDetail',
+          query: {
+            codeStr: str,
+          },
+        });
+      } else {
+        this.paused = false;
+        this.key = `code${num}`;
+      }
     },
 
     onCameraOn() {
@@ -100,7 +109,7 @@ export default {
         query: {
           codeStr: str,
         },
-        });
+      });
     },
 
     timeout(ms) {

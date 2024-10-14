@@ -7,14 +7,6 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/index',
-    name: 'CovidMobileLogin',
-    component: () =>
-      import(
-        /* webpackChunkName: "index" */ '../views/Index/index.jsx'
-      ),
-  },
-  {
-    path: '/index2',
     name: 'CovidMobileLogin2',
     component: () =>
       import(
