@@ -1,0 +1,12 @@
+.vw() {
+  @functions: ~`(function() {
+    var base = 750;
+    this.vw = function(px) {
+      var num = px * 100 / 750;
+
+      return num + 'vw';
+    };
+  })()`;
+}
+
+.vw();
