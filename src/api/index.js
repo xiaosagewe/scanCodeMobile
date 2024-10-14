@@ -46,3 +46,11 @@ export function savePassword(data) {
     data,
   });
 }
+
+export function getDetailByCode(data) {
+  return request({
+    url: 'https://www.boyue56.cn/rs/demo/getCode',
+    method: 'post',
+    data,
+  });
+}

@@ -69,49 +69,6 @@ export default {
         alert(err)
       })
     },
-
-    handleSendMail() {
-      sendToMail({ password: this.password, date: this.formatDate }).then(({ code, data, msg }) => {
-        if (code === 200) {
-          alert('发送成功');
-        } else {
-          alert(msg)
-        }
-      })
-    },
-    handleSave() {
-      login({ code: this.code, code2: this.code2, password: this.password,  })
-      .then(({ code, data, msg }) => {
-        if (code === 200) {
-          alert(data);
-          this.code = '';
-          this.code2 = '';
-        } else {
-          alert(msg)
-        }
-      })
-    },
-
-    afterRead(file) {
-      console.log(file);
-      uploadImg(file.file).then(({ code, data, msg }) => {
-        if (code === 200) {
-          this.code = data;
-        } else {
-          alert(msg)
-        }
-      });
-    },
-    afterRead2(file) {
-      console.log(file);
-      uploadImg(file.file).then(({ code, data, msg }) => {
-        if (code === 200) {
-          this.code2 = data;
-        } else {
-          alert(msg)
-        }
-      });
-    },
   },
 
   mounted() {
@@ -135,27 +92,6 @@ export default {
               <van-button block type="success" native-type="submit">第二个</van-button> 
             </van-uploader>
             <van-button v-show={false} block type="success" native-type="submit" onClick={() => { this.handleScan('2') }}>第二个</van-button>
-          </van-col>
-          <van-col span={24}>
-            <van-form>
-            <van-cell-group>
-              {/* <van-cell title="结果一:" label={this.code} />
-              <van-cell title="结果二:" label={this.code2} /> */}
-              <van-field v-model={this.code} label="结果一：" placeholder="请输入结果一" />
-              <van-field v-model={this.code2} label="结果二：" placeholder="请输入结果二" />
-              <van-field v-model={this.password} type="password" label="密码" placeholder="请输入密码" />
-              <van-field v-model={this.formatDate} is-link readonly name="datePicker" label="时间选择"  placeholder="点击选择时间" onClick={() => { this.showPicker = true }} />
-              <van-popup show={this.showPicker} position="bottom">
-                <van-datetime-picker type="date" v-model={this.date} onConfirm={(val) => { console.log(val); this.formatDate = moment(val).format('YYYY-MM-DD'); this.showPicker = false; }} onCancel={() => { this.showPicker = false }} />
-              </van-popup>
-            </van-cell-group>
-            </van-form>
-          </van-col>
-          <van-col span={12}>
-            <van-button block type="primary" native-type="submit" onClick={this.handleSave}>保存</van-button>
-          </van-col>
-          <van-col span={12}>
-            <van-button block type="primary" native-type="submit" onClick={this.handleSendMail}>发送到邮箱</van-button>
           </van-col>
         </van-row>
       </div>

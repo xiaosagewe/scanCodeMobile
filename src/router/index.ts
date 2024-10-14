@@ -22,16 +22,16 @@ const routes: Array<RouteRecordRaw> = [
       ),
   },
   {
-    path: '/index3',
+    path: '/codeDetail',
     name: 'CovidMobileLogin3',
     component: () =>
       import(
-        /* webpackChunkName: "index3" */ '../views/Index3/index.jsx'
+        /* webpackChunkName: "index3" */ '../views/codeDetail/index.vue'
       ),
   },
   {
     path: '/setPassword',
-    name: 'CovidMobileLogin3',
+    name: 'CovidMobileLogin4',
     component: () =>
       import(
         /* webpackChunkName: "setPassword" */ '../views/SetPassword/index.vue'
