@@ -75,7 +75,7 @@ export default {
         router.push({
           path: '/codeDetail',
           query: {
-            codeStr: str,
+            codeStr: this.code,
           },
         });
       } else {
