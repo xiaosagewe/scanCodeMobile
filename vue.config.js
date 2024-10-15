@@ -13,7 +13,7 @@ module.exports = {
   outputDir: 'dist',
   lintOnSave: false,
   devServer: {
-    https: true,
+    // https: true,
     overlay: {
       warnings: false,
       errors: false,

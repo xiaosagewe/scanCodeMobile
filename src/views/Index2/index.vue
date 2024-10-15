@@ -54,7 +54,9 @@
 <script>
 import { QrcodeStream } from 'vue-qrcode-reader';
 import router from '@/router';
-import { login } from '@/api/index';
+import wx from "weixin-jsapi";
+
+import { getWechatConfig } from '@/api/index';
 
 export default {
   components: { QrcodeStream },
@@ -69,7 +71,29 @@ export default {
     }
   },
 
+  mounted() {
+    this.handleGetWechatConfig();
+  },
+
   methods: {
+    handleGetWechatConfig() {
+      getWechatConfig({
+        url: 'https://rs.svetia.cn',
+      }).then(({ code, data, msg }) => {
+        if (code === 200) {
+          wx.config({
+            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wx845025ef991271f6', // 必填，公众号的唯一标识
+            timestamp: data.timestamp, // 必填，生成签名的时间戳
+            nonceStr: data.noncestr, // 必填，生成签名的随机串
+            signature: data.signature, // 必填，签名
+            jsApiList: ["scanQRCode"], // 必填，需要使用的JS接口列表, 这里只需要调用扫一扫
+          });
+        } else {
+          alert(msg)
+        }
+      })
+    },
     handleScan(num) {
       if (this.code) {
         router.push({
@@ -79,8 +103,19 @@ export default {
           },
         });
       } else {
-        this.paused = false;
-        this.key = `code${num}`;
+        // this.paused = false;
+        // this.key = `code${num}`;
+        wx.scanQRCode({
+          needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+          scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+          success: function (res) {
+            // 扫码成功，跳转到二维码指定页面（res.resultStr为扫码返回的结果）
+            // window.location.replace(res.resultStr);
+            setTimeout(() => {
+              window.location.replace(res.resultStr);
+            }, 2000);
+          },
+        });
       }
     },
 
@@ -101,8 +136,6 @@ export default {
       this[this.key] = str;
 
       this.paused = true;
-
-      console.log(str);
 
       router.push({
         path: '/codeDetail',
