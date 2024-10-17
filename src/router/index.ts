@@ -7,15 +7,31 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/index',
-    name: 'CovidMobileLogin2',
+    name: 'index',
     component: () =>
       import(
         /* webpackChunkName: "inde2x" */ '../views/Index2/index.vue'
       ),
   },
   {
+    path: '/scanCodeIndex',
+    name: 'scanCodeIndex',
+    component: () =>
+      import(
+        /* webpackChunkName: "inde2x" */ '../views/ScanCodeIndex/index.vue'
+      ),
+  },
+  {
+    path: '/scanCodeSuccess',
+    name: 'scanCodeSuccess',
+    component: () =>
+      import(
+        /* webpackChunkName: "inde2x" */ '../views/ScanCodeSuccess/index.vue'
+      ),
+  },
+  {
     path: '/codeDetail',
-    name: 'CovidMobileLogin3',
+    name: 'codeDetail',
     component: () =>
       import(
         /* webpackChunkName: "index3" */ '../views/codeDetail/index.vue'
@@ -23,7 +39,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/setPassword',
-    name: 'CovidMobileLogin4',
+    name: 'setPassword',
     component: () =>
       import(
         /* webpackChunkName: "setPassword" */ '../views/SetPassword/index.vue'
