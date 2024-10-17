@@ -30,6 +30,14 @@ const routes: Array<RouteRecordRaw> = [
       ),
   },
   {
+    path: '/scanCodeFail',
+    name: 'scanCodeFail',
+    component: () =>
+      import(
+        /* webpackChunkName: "inde2x" */ '../views/ScanCodeFail/index.vue'
+      ),
+  },
+  {
     path: '/codeDetail',
     name: 'codeDetail',
     component: () =>

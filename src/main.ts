@@ -5,13 +5,14 @@ import router from './router';
 import globalMixin from './global/mixin.js';
 import './styles/common.less';
 
-import { Button, Col, Row, Cell, CellGroup, Uploader, Field, Popup, Form, DatetimePicker, NoticeBar, Card, Grid, GridItem, Image as VanImage, Tag } from 'vant';
+import { Button, Col, Row, Cell, CellGroup, Uploader, Field, Popup, Form, DatetimePicker, NoticeBar, Card, Grid, GridItem, Image as VanImage, Tag, Dialog } from 'vant';
 
 document.addEventListener('gesturestart', function (event) {
   event.preventDefault();
 });
 
 createApp(App)
+  .use(Dialog)
   .use(Tag)
   .use(Grid)
   .use(VanImage)

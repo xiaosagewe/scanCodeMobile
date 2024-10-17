@@ -12,12 +12,24 @@
       <div class="desc">仅适用于 2024年 10月17日及以后生产的胜威塑料产品</div>
       <van-button style="width: 66vw;" round type="primary" @click="() => { handleScan('') }">立即扫码</van-button>
       <div class="mainContent">条形码破损/撕毁无法识别</div>
-      <van-button plain style="width: 60vw;margin-top: 20px; margin-bottom: 20px" round type="primary" @click="() => { handleScan('') }">手动输入</van-button>
+      <van-button plain style="width: 60vw;margin-top: 20px; margin-bottom: 20px" round type="primary" @click="handleOpenInput">手动输入</van-button>
     </div>
     <div class="title">查询步骤</div>
     <div class="content">1.将手机摄像头对准产品二维码进行扫码</div>
     <div class="content">2.待识别正确二维码后，即可查看溯源信息</div>
     <div class="van-safe-area-bottom"></div>
+    <van-dialog v-model:show="show" title="请输入二维码英文或数字" show-cancel-button @confirm="handleConfirm">
+      <div class="inputWrapper">
+        <van-field
+          v-model="code"
+          center
+          clearable
+          label=""
+          placeholder=""
+        >
+        </van-field>
+      </div>
+    </van-dialog>
   </div>
 </template>
 
@@ -34,10 +46,11 @@ export default {
   data() {
     return {
       key: '',
-      code: '',
+      code: 'F2755F1A5B8B',
       paused: true,
       result: '',
-      showScanConfirmation: false
+      showScanConfirmation: false,
+      show: false,
     }
   },
 
@@ -46,6 +59,9 @@ export default {
   },
 
   methods: {
+    handleOpenInput() {
+      this.show = true;
+    },
     handleGetWechatConfig() {
       getWechatConfig({
         url: 'https://rs.svetia.cn/codeManageMobile/#/scanCodeIndex',
@@ -76,6 +92,15 @@ export default {
               codeStr: res.resultStr,
             },
           });
+        },
+      });
+    },
+
+    handleConfirm() {
+      router.push({
+        path: '/scanCodeSuccess',
+        query: {
+          codeStr: this.code
         },
       });
     },
@@ -161,5 +186,13 @@ export default {
   color: #666;
   font-size: 14px;
   margin-bottom: 4px;
+}
+
+.inputWrapper{
+  width: 90%;
+  border: 1px solid #333;
+  margin: 20px auto;
+  border-radius: 6px;
+  padding: 4px;
 }
 </style>
