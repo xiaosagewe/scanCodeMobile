@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       key: '',
-      code: '22cb3469456e48629598192fff1333df',
+      code: '',
       paused: true,
       result: '',
       showScanConfirmation: false
@@ -78,14 +78,14 @@ export default {
   methods: {
     handleGetWechatConfig() {
       getWechatConfig({
-        url: 'https://rs.svetia.cn',
+        url: 'https://rs.svetia.cn/codeManageMobile/#/index',
       }).then(({ code, data, msg }) => {
         if (code === 200) {
           wx.config({
-            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            appId: 'wx845025ef991271f6', // 必填，公众号的唯一标识
+            // debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: 'wx06615118720169c0', // 必填，公众号的唯一标识
             timestamp: data.timestamp, // 必填，生成签名的时间戳
-            nonceStr: data.noncestr, // 必填，生成签名的随机串
+            nonceStr: data.nonceStr, // 必填，生成签名的随机串
             signature: data.signature, // 必填，签名
             jsApiList: ["scanQRCode"], // 必填，需要使用的JS接口列表, 这里只需要调用扫一扫
           });
@@ -95,28 +95,42 @@ export default {
       })
     },
     handleScan(num) {
-      if (this.code) {
-        router.push({
-          path: '/codeDetail',
-          query: {
-            codeStr: this.code,
-          },
-        });
-      } else {
-        // this.paused = false;
-        // this.key = `code${num}`;
-        wx.scanQRCode({
-          needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
-          scanType: ["qrCode", "barCode"], // 可以指定扫二维码还是一维码，默认二者都有
-          success: function (res) {
-            // 扫码成功，跳转到二维码指定页面（res.resultStr为扫码返回的结果）
-            // window.location.replace(res.resultStr);
-            setTimeout(() => {
-              window.location.replace(res.resultStr);
-            }, 2000);
-          },
-        });
-      }
+      wx.scanQRCode({
+        needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+        scanType: ["qrCode"], // 可以指定扫二维码还是一维码，默认二者都有
+        success: function (res) {
+          // 扫码成功，跳转到二维码指定页面（res.resultStr为扫码返回的结果）
+          router.push({
+            path: '/codeDetail',
+            query: {
+              codeStr: res.resultStr,
+            },
+          });
+        },
+      });
+      // if (this.code) {
+      //   router.push({
+      //     path: '/codeDetail',
+      //     query: {
+      //       codeStr: this.code,
+      //     },
+      //   });
+      // } else {
+      //   // this.paused = false;
+      //   // this.key = `code${num}`;
+      //   wx.scanQRCode({
+      //     needResult: 0, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+      //     scanType: ["qrCode"], // 可以指定扫二维码还是一维码，默认二者都有
+      //     success: function (res) {
+      //       console.log(res)
+      //       // 扫码成功，跳转到二维码指定页面（res.resultStr为扫码返回的结果）
+      //       // window.location.replace(res.resultStr);
+      //       // setTimeout(() => {
+      //       //   window.location.replace(res.resultStr);
+      //       // }, 2000);
+      //     },
+      //   });
+      // }
     },
 
     onCameraOn() {

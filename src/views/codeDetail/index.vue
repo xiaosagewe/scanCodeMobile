@@ -5,6 +5,20 @@
         left-icon="volume-o"
         text="尊敬的客户，感谢您购买胜威塑料原厂生产产品！"
       />
+      <van-button type="primary" icon="qr" size="small">防伪信息</van-button>
+      <van-cell-group>
+        <van-cell title="" value="">
+          <template #title>
+            当前防伪码是第 <van-tag type="danger" round size="large">{{ detail.queryTime }}</van-tag> 次查询
+          </template>
+        </van-cell>
+        <van-cell title="桶身防伪码" :value="detail.code" />
+        <van-cell title="瓶口（外）防伪码" :value="detail.code2" />
+        <van-cell title="瓶口（内）防伪码" :value="detail.code3" />
+        <!-- <van-cell title="创建时间" :value="detail.createTime" /> -->
+        <van-cell title="首次扫码时间" :value="detail.firstTime" />
+        <van-cell title="上次扫码时间" :value="detail.lastTime" />
+      </van-cell-group>
       <van-button style="margin-top: 20px;" type="primary" icon="info-o" size="small">商品信息</van-button>
       <van-cell-group style="margin-bottom: 20px;">
         <van-cell title="产品图片">
@@ -20,18 +34,6 @@
         <van-cell title="净含量" :value="detail.netContent" />
         <van-cell title="保质期" :value="detail.expirationYear" />
         <van-cell title="执行标准" :value="detail.standard" />
-      </van-cell-group>
-      <van-button type="primary" icon="qr" size="small">防伪信息</van-button>
-      <van-cell-group>
-        <van-cell title="桶身防伪码" :value="detail.code" />
-        <van-cell title="瓶口（外）防伪码" :value="detail.code2" />
-        <van-cell title="瓶口（内）防伪码" :value="detail.code3" />
-        <van-cell title="创建时间" :value="detail.createTime" />
-        <van-cell title="首次扫码时间" :value="detail.firstTime" />
-        <van-cell title="上次扫码时间" :value="detail.lastTime" />
-        <van-cell title="被查询次数" :value="detail.queryTime">
-          <van-tag type="danger" round size="large">{{ detail.queryTime }} 次</van-tag>
-        </van-cell>
       </van-cell-group>
       <div class="van-safe-area-bottom"></div>
     </div>
