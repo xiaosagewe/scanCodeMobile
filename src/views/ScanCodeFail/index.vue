@@ -27,7 +27,9 @@ export default {
   },
   methods: {
     handleTry() {
-      router.push('/scanCodeIndex');
+      const scanPath = router?.currentRoute?.value?.query?.scanPath;
+
+      router.push(scanPath);
     },
   }
 }

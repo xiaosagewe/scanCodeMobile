@@ -32,3 +32,6 @@ npm run serve
 
 ## 发布
 生产: npm run build:prod
+
+## 生产地址
+https://rs.svetia.cn/codeManageMobile/#/scanCodeIndex

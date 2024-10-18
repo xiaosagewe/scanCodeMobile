@@ -18,7 +18,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'scanCodeIndex',
     component: () =>
       import(
-        /* webpackChunkName: "inde2x" */ '../views/ScanCodeIndex/index.vue'
+        /* webpackChunkName: "scanCodeIndex" */ '../views/ScanCodeIndex/index.vue'
+      ),
+  },
+  {
+    path: '/scanCodeIndex1',
+    name: 'scanCodeIndex1',
+    component: () =>
+      import(
+        /* webpackChunkName: "scanCodeIndex1" */ '../views/ScanCodeIndex/index1.vue'
       ),
   },
   {
@@ -26,7 +34,15 @@ const routes: Array<RouteRecordRaw> = [
     name: 'scanCodeSuccess',
     component: () =>
       import(
-        /* webpackChunkName: "inde2x" */ '../views/ScanCodeSuccess/index.vue'
+        /* webpackChunkName: "scanCodeSuccess" */ '../views/ScanCodeSuccess/index.vue'
+      ),
+  },
+  {
+    path: '/scanCodeSuccess1',
+    name: 'scanCodeSuccess1',
+    component: () =>
+      import(
+        /* webpackChunkName: "scanCodeSuccess1" */ '../views/ScanCodeSuccess/index1.vue'
       ),
   },
   {
@@ -34,7 +50,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'scanCodeFail',
     component: () =>
       import(
-        /* webpackChunkName: "inde2x" */ '../views/ScanCodeFail/index.vue'
+        /* webpackChunkName: "scanCodeFail" */ '../views/ScanCodeFail/index.vue'
       ),
   },
   {
@@ -42,7 +58,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'codeDetail',
     component: () =>
       import(
-        /* webpackChunkName: "index3" */ '../views/codeDetail/index.vue'
+        /* webpackChunkName: "codeDetail" */ '../views/codeDetail/index.vue'
       ),
   },
   {

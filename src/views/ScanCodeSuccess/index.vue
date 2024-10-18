@@ -85,7 +85,12 @@
             if (code === 200) {
               this.detail = data;
             } else {
-              router.push('/scanCodeFail');
+              router.push({
+              path: '/scanCodeFail',
+              query: {
+                scanPath: '/scanCodeIndex'
+              },
+            });
             }
           });
       },
