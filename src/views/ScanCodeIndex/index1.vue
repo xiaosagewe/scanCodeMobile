@@ -26,7 +26,7 @@
           </template>
         </van-field>
       </div>
-      <van-grid :column-num="3">
+      <van-grid :column-num="3" :border="false">
         <van-grid-item icon="photo-o" text="文字" >
           <template #icon>
             <van-image
@@ -80,8 +80,8 @@ export default {
   data() {
     return {
       key: '',
-      code: 'F2755F1A5B8B',
-      // code: '',
+      // code: 'F2755F1A5B8B',
+      code: '',
       PRO_TOP,
       PRO_BODY,
     }
@@ -94,7 +94,7 @@ export default {
   methods: {
     handleGetWechatConfig() {
       getWechatConfig({
-        url: 'https://rs.svetia.cn/codeManageMobile/#/scanCodeIndex',
+        url: 'https://rs.svetia.cn/codeManageMobile/#/scanCodeIndex1',
       }).then(({ code, data, msg }) => {
         if (code === 200) {
           wx.config({
@@ -111,13 +111,14 @@ export default {
       })
     },
     handleScan(num) {
+      let _this = this;
       wx.scanQRCode({
         needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
         scanType: ["qrCode"], // 可以指定扫二维码还是一维码，默认二者都有
         success: function (res) {
           // 扫码成功，跳转到二维码指定页面（res.resultStr为扫码返回的结果）
 
-          this.code = res.resultStr;
+          _this.code = res.resultStr;
         },
       });
     },

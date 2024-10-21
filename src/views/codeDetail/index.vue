@@ -13,8 +13,8 @@
           </template>
         </van-cell>
         <van-cell title="桶身防伪码" :value="detail.code" />
-        <van-cell title="瓶口（外）防伪码" :value="detail.code2" />
-        <van-cell title="瓶口（内）防伪码" :value="detail.code3" />
+        <van-cell title="油嘴（外）防伪码" :value="detail.code2" />
+        <van-cell title="油嘴（内）防伪码" :value="detail.code3" />
         <!-- <van-cell title="创建时间" :value="detail.createTime" /> -->
         <van-cell title="首次扫码时间" :value="detail.firstTime" />
         <van-cell title="上次扫码时间" :value="detail.lastTime" />

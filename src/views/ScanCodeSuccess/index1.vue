@@ -21,11 +21,11 @@
         <div class="cardItemContent">{{ detail.code }}</div>
       </div>
       <div class="cardItem">
-        <div class="cardItemTitle">瓶口（外）防伪码：</div>
+        <div class="cardItemTitle">油嘴（外）防伪码：</div>
         <div class="cardItemContent">{{ detail.code2 }}</div>
       </div>
       <div class="cardItem">
-        <div class="cardItemTitle">瓶口（内）防伪码：</div>
+        <div class="cardItemTitle">油嘴（内）防伪码：</div>
         <div class="cardItemContent">{{ detail.code3 }}</div>
       </div>
       <div class="cardItem">
