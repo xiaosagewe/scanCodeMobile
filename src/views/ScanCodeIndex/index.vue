@@ -1,11 +1,12 @@
 <template>
   <div style="padding: 16px;">
     <div class="van-safe-area-top"></div>
+    <img :src="LOGO" alt="" srcset="" class="logo">
     <div class="scanCodeIndexWrapper">
       <van-image
         width="100"
         height="100"
-        src="https://img2.baidu.com/it/u=646717384,2899469166&fm=253&fmt=auto&app=138&f=JPEG?w=750&h=500"
+        src="https://img14.360buyimg.com/pop/jfs/t1/214373/10/12019/836979/62038e1eEe00f1dbd/0d8de10b86606890.png"
       />
       <div class="desc">非实物图片，仅为操作演示</div>
       <div class="mainContent">本功能需要手机支持并开启摄像头权限，请确保手机摄像头功能已开启</div>
@@ -40,6 +41,8 @@ import wx from "weixin-jsapi";
 
 import { getWechatConfig } from '@/api/index';
 
+import LOGO from '@/assets/logo.png'
+
 export default {
   components: { QrcodeStream },
 
@@ -51,6 +54,7 @@ export default {
       result: '',
       showScanConfirmation: false,
       show: false,
+      LOGO,
     }
   },
 
@@ -141,6 +145,10 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+  height: 32px;
+}
+
 .scan-confirmation {
   position: absolute;
   width: 100%;

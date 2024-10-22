@@ -1,6 +1,7 @@
 <template>
     <div>
       <div class="van-safe-area-top"></div>
+      <img :src="LOGO" alt="" class="logo">
       <van-notice-bar
         left-icon="volume-o"
         text="尊敬的客户，感谢您购买胜威塑料原厂生产产品！"
@@ -42,11 +43,14 @@
   <script>
   import router from '@/router';
   import { getDetailByCode } from '@/api/index';
+
+  import LOGO from '@/assets/logo.png'
   
   export default {
     data() {
       return {
         detail: {},
+        LOGO,
       }
     },
 
@@ -77,6 +81,10 @@
   </script>
   
   <style scoped>
+  .logo {
+    height: 32px;
+  }
+
   .scan-confirmation {
     position: absolute;
     width: 100%;
