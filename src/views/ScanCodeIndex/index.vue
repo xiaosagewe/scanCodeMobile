@@ -6,7 +6,7 @@
       <van-image
         width="100"
         height="100"
-        src="https://img14.360buyimg.com/pop/jfs/t1/214373/10/12019/836979/62038e1eEe00f1dbd/0d8de10b86606890.png"
+        src="http://rs-cn-20220728.oss-cn-shanghai.aliyuncs.com/image/20241023/1729686432798226.jpg?Expires=2045046433&OSSAccessKeyId=LTAI5t5g39V9oiXfrxJjciWy&Signature=GLhDcjWwya5%2FpNzbADbpotAgsPA%3D"
       />
       <div class="desc">非实物图片，仅为操作演示</div>
       <div class="mainContent">本功能需要手机支持并开启摄像头权限，请确保手机摄像头功能已开启</div>
@@ -18,6 +18,23 @@
     <div class="title">查询步骤</div>
     <div class="content">1.将手机摄像头对准产品二维码进行扫码</div>
     <div class="content">2.待识别正确二维码后，即可查看溯源信息</div>
+    <van-grid :column-num="3" direction="horizontal" :border="false">
+      <van-grid-item icon="photo-o" text="文字">
+        <van-image
+          :src="PRO_TOP"
+        />
+      </van-grid-item>
+      <van-grid-item icon="photo-o" text="文字">
+        <van-image
+          :src="PRO_IN"
+        />
+      </van-grid-item>
+      <van-grid-item icon="photo-o" text="文字">
+        <van-image
+          :src="PRO_BODY"
+        />
+      </van-grid-item>
+    </van-grid>
     <div class="van-safe-area-bottom"></div>
     <van-dialog v-model:show="show" title="请输入二维码英文或数字" show-cancel-button @confirm="handleConfirm">
       <div class="inputWrapper">
@@ -41,7 +58,10 @@ import wx from "weixin-jsapi";
 
 import { getWechatConfig } from '@/api/index';
 
-import LOGO from '@/assets/logo.png'
+import LOGO from '@/assets/logo.png';
+import PRO_TOP from '@/assets/pro-top.png';
+import PRO_BODY from '@/assets/pro-body.png';
+import PRO_IN from '@/assets/pro-in.png';
 
 export default {
   components: { QrcodeStream },
@@ -55,6 +75,9 @@ export default {
       showScanConfirmation: false,
       show: false,
       LOGO,
+      PRO_TOP,
+      PRO_BODY,
+      PRO_IN,
     }
   },
 
