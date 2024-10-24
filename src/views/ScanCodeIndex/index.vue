@@ -4,8 +4,8 @@
     <img :src="LOGO" alt="" srcset="" class="logo">
     <div class="scanCodeIndexWrapper">
       <van-image
-        width="100"
-        height="100"
+        width="130"
+        height="130"
         src="http://rs-cn-20220728.oss-cn-shanghai.aliyuncs.com/image/20241023/1729686432798226.jpg?Expires=2045046433&OSSAccessKeyId=LTAI5t5g39V9oiXfrxJjciWy&Signature=GLhDcjWwya5%2FpNzbADbpotAgsPA%3D"
       />
       <div class="desc">非实物图片，仅为操作演示</div>
@@ -189,7 +189,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 12vw;
+  padding-top: 20px;
 
   .desc {
     font-size: 14px;
