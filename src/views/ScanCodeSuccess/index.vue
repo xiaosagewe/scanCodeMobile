@@ -8,16 +8,20 @@
         <div class="card" style="margin-top: 16px;">
           <div class="cardTitle">防伪信息</div>
           <div class="cardItem special">当前防伪码是第 <van-tag type="danger" round size="large">{{ detail.queryTime }}</van-tag> 次查询</div>
-          <div class="cardItem">
+          <div class="cardItem" v-if="detail.codeModel === 1">
+            <div class="cardItemTitle">防伪码</div>
+            <div class="cardItemContent">{{ detail.code }}</div>
+          </div>
+          <div class="cardItem" v-if="detail.codeModel === 2">
             <div class="cardItemTitle">桶身防伪码</div>
             <div class="cardItemContent">{{ detail.code }}</div>
           </div>
-          <div class="cardItem">
-            <div class="cardItemTitle">油嘴（外）防伪码</div>
+          <div class="cardItem" v-if="detail.codeModel === 2">
+            <div class="cardItemTitle" >油嘴（外）防伪码</div>
             <div class="cardItemContent">{{ detail.code2 }}</div>
           </div>
-          <div class="cardItem">
-            <div class="cardItemTitle">油嘴（内）防伪码</div>
+          <div class="cardItem" v-if="detail.codeModel === 2">
+            <div class="cardItemTitle" >油嘴（内）防伪码</div>
             <div class="cardItemContent">{{ detail.code3 }}</div>
           </div>
           <div class="cardItem">
@@ -27,6 +31,21 @@
           <div class="cardItem">
             <div class="cardItemTitle">上次扫码时间</div>
             <div class="cardItemContent">{{ detail.lastTime }}</div>
+          </div>
+        </div>
+        <div class="card" v-if="detail.createModel === 2">
+          <div class="cardTitle">罐装信息</div>
+          <div class="cardItem">
+            <div class="cardItemTitle">罐装地点</div>
+            <div class="cardItemContent">{{ detail.address }}</div>
+          </div>
+          <div class="cardItem">
+            <div class="cardItemTitle">罐装时间</div>
+            <div class="cardItemContent">{{ detail.activeTime }}</div>
+          </div>
+          <div class="cardItem">
+            <div class="cardItemTitle">操作人员</div>
+            <div class="cardItemContent">{{ detail.activeNickName }}</div>
           </div>
         </div>
         <div class="card">
