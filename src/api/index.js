@@ -3,7 +3,7 @@ import request from '@/utils/request';
 //登录
 export function login(data) {
   return request({
-    url: 'https://rs.svetia.cn/demo/code/save',
+    url: 'https://rs.wxdlzs.com/demo/code/save',
     method: 'post',
     data
   });
@@ -25,7 +25,7 @@ export function uploadImg(file) {
   formData.append('file', file);
   
   return request({
-    url: 'https://rs.svetia.cn/demo/code/upload',
+    url: 'https://rs.wxdlzs.com/demo/code/upload',
     method: 'post',
     data: formData,
   });
@@ -33,7 +33,7 @@ export function uploadImg(file) {
 
 export function sendToMail(data) {
   return request({
-    url: 'https://rs.svetia.cn/demo/code/sendMail',
+    url: 'https://rs.wxdlzs.com/demo/code/sendMail',
     method: 'post',
     data,
   });
@@ -41,7 +41,7 @@ export function sendToMail(data) {
 
 export function savePassword(data) {
   return request({
-    url: 'https://rs.svetia.cn/demo/password/update',
+    url: 'https://rs.wxdlzs.com/demo/password/update',
     method: 'post',
     data,
   });
@@ -49,7 +49,7 @@ export function savePassword(data) {
 
 export function getDetailByCode(data) {
   return request({
-    url: 'https://rs.svetia.cn/demo/demo/getCode',
+    url: 'https://rs.wxdlzs.com/demo/demo/getCode',
     method: 'post',
     data,
   });
@@ -57,7 +57,7 @@ export function getDetailByCode(data) {
 
 export function getWechatConfig(data) {
   return request({
-    url: 'https://rs.svetia.cn/demo/wechat/sdkSign',
+    url: 'https://rs.wxdlzs.com/demo/wechat/sdkSign',
     method: 'post',
     data,
   });

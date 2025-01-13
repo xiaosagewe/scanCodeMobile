@@ -94,7 +94,7 @@ export default {
   methods: {
     handleGetWechatConfig() {
       getWechatConfig({
-        url: 'https://rs.svetia.cn/codeManageMobile/#/scanCodeIndex1',
+        url: 'https://rs.wxdlzs.com/codeManageMobile/#/scanCodeIndex1',
       }).then(({ code, data, msg }) => {
         if (code === 200) {
           wx.config({
