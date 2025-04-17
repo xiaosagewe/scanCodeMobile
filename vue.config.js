@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = {
   // publicPath: './',
-  publicPath: '/codeManageMobile',
+  publicPath: '/code2',
   indexPath: 'index.html',
   productionSourceMap: false,
   // 输出文件夹

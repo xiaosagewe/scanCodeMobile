@@ -14,6 +14,14 @@ const routes: Array<RouteRecordRaw> = [
       ),
   },
   {
+    path: '/codeScanToStore',
+    name: 'codeScanToStore',
+    component: () =>
+      import(
+        /* webpackChunkName: "codeScanToStore" */ '../views/codeScanToStore/index.vue'
+      ),
+  },
+  {
     path: '/scanCodeIndex',
     name: 'scanCodeIndex',
     component: () =>
