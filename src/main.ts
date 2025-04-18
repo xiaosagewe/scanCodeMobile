@@ -5,7 +5,7 @@ import router from './router';
 import globalMixin from './global/mixin.js';
 import './styles/common.less';
 
-import { Button, Col, Row, Cell, CellGroup, Uploader, Field, Popup, Form, DatetimePicker, NoticeBar, PullRefresh, Card, Grid, GridItem, Image as VanImage, Tag, Dialog, Icon, Toast, List, NavBar } from 'vant';
+import { Button, Col, Row, Cell, CellGroup, Uploader, Field, Popup, Form, DatetimePicker, Picker, NoticeBar, PullRefresh, Card, Grid, GridItem, Image as VanImage, Tag, Dialog, Icon, Toast, List, NavBar } from 'vant';
 
 document.addEventListener('gesturestart', function (event) {
   event.preventDefault();
@@ -22,6 +22,7 @@ createApp(App)
   .use(Card)
   .use(Button)
   .use(DatetimePicker)
+  .use(Picker)
   .use(Form)
   .use(Popup)
   .use(Field)

@@ -15,3 +15,19 @@ export function getCodePage(data) {
     data,
   });
 }
+
+export function getCodeTypes(data) {
+  return request({
+    url: 'https://www.boyue56.cn/rs/code/getNo',
+    method: 'post',
+    data,
+  });
+}
+
+export function sendCodesToEmail(data) {
+  return request({
+    url: 'https://www.boyue56.cn/rs/code/sendMail',
+    method: 'post',
+    data,
+  });
+}
